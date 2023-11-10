@@ -1,0 +1,5 @@
+speaker_speaker_profile.add_form:
+  title: 'Add speaker profile'
+  route_name: entity.speaker_speaker_profile.add_form
+  appears_on:
+    - entity.speaker_speaker_profile.collection

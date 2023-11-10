@@ -1,0 +1,5 @@
+name: 'Speaker'
+type: module
+description: 'Custom entity type Speaker Profile with administrative interface and block'
+package: Custom
+core_version_requirement: ^10

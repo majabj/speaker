@@ -1,0 +1,75 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Speaker module.
+ */
+
+use Drupal\Core\Render\Element;
+
+/**
+ * Implements hook_theme().
+ */
+function speaker_theme(): array {
+  return [
+    'speaker_speaker_profile' => ['render element' => 'elements'],
+    'my_custom_block' =>[
+      'variables' => ['random_entity' => NULL], 
+    ]
+  ];
+}
+
+/**
+ * Prepares variables for speaker profile templates.
+ *
+ * Default template: speaker-speaker-profile.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the speaker profile information and any
+ *     fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_speaker_speaker_profile(array &$variables): void {
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+/**
+ * Implements hook_install().
+ */
+function speaker_install() {
+  create_custom_taxonomy();
+}
+
+function create_custom_taxonomy() {
+  // Create a new vocabulary.
+  $vocabulary = \Drupal\taxonomy\Entity\Vocabulary::create([
+    'vid' => 'topics_of_expertise',
+    'name' => 'Topics Of Expertise',
+    'description' => 'This vocabulary has list of topics as terms',
+  ]);
+  $vocabulary->save();
+
+  // Create terms for the vocabulary.
+  $terms = [
+    'Topic 1' => 'Number one topic.',
+    'Topic 2' => 'Number two topic.',
+    'Topic 3' => 'Number three topic.',
+  ];
+
+  foreach ($terms as $name => $description) {
+    $term = \Drupal\taxonomy\Entity\Term::create([
+      'vid' => $vocabulary->id(),
+      'name' => $name,
+      'description' => $description,
+    ]);
+    $term->save();
+  }
+
+  // Clear cache.
+  \Drupal\Core\Cache\Cache::invalidateTags(['taxonomy_term_list']);
+}
+

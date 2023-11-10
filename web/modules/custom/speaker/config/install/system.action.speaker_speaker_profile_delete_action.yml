@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - speaker
+id: speaker_speaker_profile_delete_action
+label: 'Delete speaker profiles'
+type: speaker_speaker_profile
+plugin: entity:delete_action:speaker_speaker_profile
+configuration: {  }

@@ -1,0 +1,17 @@
+<div class="custom-block">
+  <h2>{{ random_entity.label }}</h2>
+
+  <div class="circular-thumbnail">
+  {% if random_entity.portrait|length %}
+    <img src="{{ random_entity.portrait.0.entity.uri.value| image_style('circular_thumbnail')}}" alt="{{ random_entity.portrait.0.alt }}">
+  {% endif %}
+  </div>
+
+  {% if random_entity.name|length %}
+    <p>Name: {{ random_entity.name.0.value }}</p>
+  {% endif %}
+
+  {% if random_entity.topics_of_expertise|length %}
+    <p>Term: {{ random_entity.topics_of_expertise.0.entity.name.value }}</p>
+  {% endif %}
+</div>

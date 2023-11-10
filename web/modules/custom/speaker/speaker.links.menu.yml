@@ -1,0 +1,11 @@
+entity.speaker_speaker_profile.settings:
+  title: 'Speaker Profile'
+  description: 'Configure a Speaker Profile entity type.'
+  route_name:  entity.speaker_speaker_profile.settings
+  parent: system.admin_structure
+
+entity.speaker_speaker_profile.collection:
+  title: 'Speaker Profiles'
+  description: 'List of speaker profiles.'
+  route_name: entity.speaker_speaker_profile.collection
+  parent: system.admin_content

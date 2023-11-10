@@ -1,0 +1,11 @@
+administer speaker profiles:
+  title: 'Administer speaker profiles'
+  restrict access: true
+delete speaker profile:
+  title: 'Delete speaker profile'
+create speaker profile:
+  title: 'Create speaker profile'
+view speaker profile:
+  title: 'View speaker profile'
+edit speaker profile:
+  title: 'Edit speaker profile'
