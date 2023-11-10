@@ -18,7 +18,7 @@ You can install it manually or with composer.
 ## CONFIGURATION
 - After fresh installation, next step is creating custom module and entity. I used drush to generate both.
   
-- CUSTOM ENTITY TYPE- SPEAKER PROFILE-
+- CUSTOM ENTITY TYPE- SPEAKER PROFILE
 - For purpose of creating entity_reference, inside module file there is install() and create_custom_taxonomy(). Meaning of them is to programatically
 - add vocabulary and couple of terms of that same vocabulary.
 - Has 4 fields, string, text_long, entity_reference and image all of that is created in src/Entity/SpeakerProfile.php For user friendly url
@@ -30,7 +30,7 @@ You can install it manually or with composer.
 - Speaker Details is added through CMS. That display mode is visible and is next to Default one. For custom entity I added view mode.
 - Both of them are visible if you go to Structure/Speaker Profile.
   
-- ADMIN INTERFACE-
+- ADMIN INTERFACE
 - This interface is added when custom entity is generated. It is visible when you click on admin panel Content. It is called Speaker Profiles.
 - When you click on it, you can see the list of entities of Speaker Profile. You can do CRUD. File which is edited for this purpose is speaker/src
 - /SpeakerProfileListBuilder.php. I added fields that are showing on Speaker Profiles (id and name).
@@ -39,7 +39,7 @@ You can install it manually or with composer.
 - SpeakerProfileBuilder.php When clicking on button Filter of Form, page is redirecting to the route of where the collection of custom entity type is with
 - parameters catched in request.
 
-- BLOCK - FEATURED SPEAKER-
+- BLOCK - FEATURED SPEAKER
 - Custom block is being created in src/Plugin/FeaturedSpeakerBlock. EntityTypeManager is used to get custom entity type, then for random entity it is applied
 - array_rand. Block is build with name, portrait and topics_of_expertise. Block is, after creating programatically, visible inside block layout and it gives freedom
 - to put it wherever inside CMS. Caching is only added within $build that works on page reload.
