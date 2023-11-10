@@ -1,7 +1,7 @@
 # speaker
 ## INTRODUCTION
 
-The Speaker module is a DESCRIBE_THE_MODULE_HERE.
+The Speaker module is a custom module with custom entity, block, template and admin interface.
 
 The primary use case for this module is:
 
